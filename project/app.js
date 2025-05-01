@@ -77,9 +77,7 @@ function createProjectCard(project) {
       </div>
       <div class="mt-4 flex justify-between items-center">
         <span class="text-xs text-gray-500 capitalize">${project.category || 'Web'}</span>
-        <button class="view-details-btn text-indigo-600 hover:text-indigo-800 text-sm font-medium transition-colors">
-          View Details
-        </button>
+       
       </div>
     </div>
   `;
@@ -183,86 +181,6 @@ function setupModal() {
     }
   });
 }
-
-// Set up category filter buttons
-function setupFilters() {
-  const filterButtons = document.querySelectorAll('.filter-btn');
-  
-  if (filterButtons.length === 0) return;
-  
-  filterButtons.forEach(button => {
-    button.addEventListener('click', () => {
-      // Remove active class from all buttons
-      filterButtons.forEach(btn => btn.classList.remove('active', 'bg-indigo-100', 'text-indigo-800'));
-      
-      // Add active class to clicked button
-      button.classList.add('active', 'bg-indigo-100', 'text-indigo-800');
-      
-      // Get the filter value
-      const filter = button.dataset.filter;
-      
-      // Filter projects
-      const filteredProjects = getProjectsByCategory(filter);
-      displayProjects(filteredProjects);
-    });
-  });
-}
-
-// Update stats counters
-function updateStats(projects) {
-  const statsProjects = document.getElementById('stats-projects');
-  const statsClients = document.getElementById('stats-clients');
-  const statsExperience = document.getElementById('stats-experience');
-  
-  if (statsProjects) {
-    statsProjects.textContent = projects.length;
-  }
-  
-  // These would typically come from another source, but we'll set placeholder values
-  if (statsClients) {
-    statsClients.textContent = '10+';
-  }
-  
-  if (statsExperience) {
-    statsExperience.textContent = '5+';
-  }
-}
-
-// Set up contact form
-function setupContactForm() {
-  const contactForm = document.getElementById('contact-form');
-  
-  if (!contactForm) return;
-  
-  contactForm.addEventListener('submit', (e) => {
-    e.preventDefault();
-    
-    // Get the form data
-    const formData = new FormData(contactForm);
-    const name = formData.get('name');
-    const email = formData.get('email');
-    const message = formData.get('message');
-    
-    // In a real implementation, you would send this data to your server
-    // For now, we'll just show a success message
-    
-    // Show success message
-    const formContainer = contactForm.parentElement;
-    formContainer.innerHTML = `
-      <div class="text-center">
-        <div class="text-green-500 text-5xl mb-4">
-          <i class="fas fa-check-circle"></i>
-        </div>
-        <h3 class="text-xl font-semibold text-gray-900 mb-2">Message Sent!</h3>
-        <p class="text-gray-600">Thanks for reaching out, ${name}. I'll get back to you soon!</p>
-      </div>
-    `;
-    
-    // For development purposes, log the data
-    console.log({ name, email, message });
-  });
-}
-
 // Set up mobile navigation
 function setupMobileNav() {
   const menuButton = document.getElementById('mobile-menu-button');
