@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Portfolio Projects</title>
+    <meta name="description" content="Showcase of my web development projects" />
+    <meta name="author" content="Portfolio Owner" />
+    <meta property="og:image" content="/og-image.png" />
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+    <link rel="stylesheet" href="styles.css">
+    <!-- IMPORTANT: DO NOT REMOVE THIS SCRIPT TAG OR THIS VERY COMMENT! -->
+    <script src="https://cdn.gpteng.co/gptengineer.js" type="module"></script>
+  </head>
+
+  <body class="bg-gray-50 min-h-screen font-sans">
+    <!-- Hero Section -->
+    <div class="relative bg-gradient-to-r from-pink-600 to-indigo-600 text-white overflow-hidden">
+      <div class="absolute inset-0">
+        
+      </div>
+      <div class="container mx-auto px-4 sm:px-6 py-20 sm:py-32 relative z-10">
+        <div class="text-center max-w-3xl mx-auto">
+          <h1 class="text-5xl sm:text-6xl font-bold mb-4" data-aos="fade-up">My Project Gallery</h1>
+         
+           
+          </p>
+          <div class="flex justify-center space-x-4" data-aos="fade-up" data-aos-delay="200">
+            <a href="#projects" class="bg-white text-indigo-600 hover:bg-gray-100 transition-colors duration-300 font-medium rounded-lg px-6 py-3 shadow-md">
+              View Projects
+            </a>
+            <a href="#contact" class="bg-transparent hover:bg-indigo-700 border border-white text-white transition-colors duration-300 font-medium rounded-lg px-6 py-3">
+              Contact Me
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-16 bg-gray-50">
+      <div class="container mx-auto px-4">
+        <div class="text-center mb-12">
+          <h2 class="text-3xl font-bold text-gray-900 mb-4" data-aos="fade-up">My Projects</h2>
+          <p class="text-gray-600 max-w-2xl mx-auto" data-aos="fade-up" data-aos-delay="100">
+            Here are some of my recent projects. Click on any project to view more details or visit the GitHub repository.
+          </p>
+        </div>
+        
+        <!-- Filter Buttons -->
+        <div class="flex flex-wrap justify-center mb-8 space-x-2" data-aos="fade-up" data-aos-delay="200">
+        
+        
+        
+        <!-- Projects Grid -->
+        <div id="projects-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+          <!-- Projects will be loaded here dynamically -->
+        </div>
+      </div>
+    </section>
+  
+
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-white">
+      <div class="container mx-auto px-4 sm:px-6">
+        <div class="text-center mb-16">
+          <span class="text-indigo-500 font-semibold tracking-wider uppercase text-sm" data-aos="fade-up">Get in Touch</span>
+          <h2 class="text-4xl font-bold text-gray-900 mt-2 mb-4" data-aos="fade-up" data-aos-delay="50">Let's Work Together</h2>
+          <p class="text-xl text-gray-600 max-w-2xl mx-auto" data-aos="fade-up" data-aos-delay="100">
+            Have a project in mind? I'd love to hear about it!
+          </p>
+        </div>
+        
+        <div class="flex justify-center flex-wrap gap-4">
+          <a href="contact.html" class="border-2 border-red-500 text-red-500 px-6 py-3 rounded-full font-medium hover:bg-red-500 hover:text-white transition-colors flex items-center gap-2">
+              <span>Get in touch</span>
+              <i class="fas fa-arrow-right"></i>
+          </a>
+      </div>
+            </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white pt-12 pb-8">
+      <div class="container mx-auto px-4 sm:px-6">
+        <div class="flex flex-col md:flex-row justify-between items-center">
+          <div class="mb-6 md:mb-0">
+            <h2 class="text-2xl font-bold">My Portfolio</h2>
+            <p class="text-gray-400 mt-2">Building amazing web experiences</p>
+          </div>
+          
+          <div class="flex flex-wrap justify-center gap-6">
+            <a href="index.html" class="hover:text-indigo-400 transition-colors duration-300">Home</a>
+            <a href="project.html" class="hover:text-indigo-400 transition-colors duration-300">Projects</a>
+            <a href="contact.html" class="hover:text-indigo-400 transition-colors duration-300">Contact</a>
+          </div>
+        </div>
+        
+        <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400 text-sm">
+          <p>&copy; 2025 Your Portfolio. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script src="./project/project.js"></script>
+    <script src="./project/app.js"></script>
+  </body>
+</html>

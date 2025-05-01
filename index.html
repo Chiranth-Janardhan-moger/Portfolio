@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chiranth Janardhan Moger | Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #ff3838;
+            --secondary-color: #f8f8f8;
+            --text-color: #333;
+            --bg-color: #fff;
+            --card-bg: #f5f5f5;
+            --shadow-color: rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        } 
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            transition: var(--transition);
+            overflow-x: hidden;
+        }
+        .navbar {
+            background-color: var(--bg-color);
+            box-shadow: 0 2px 10px var(--shadow-color);
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+            transition: var(--transition);
+        }
+
+        .nav-link {
+            color: var(--text-color);
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -2px;
+            left: 0;
+            background-color: var(--primary-color);
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .hero-section {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding-top: 70px;
+        }
+
+        .profile-img {
+            border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+            box-shadow: 0 20px 30px var(--shadow-color);
+            animation: morphing 10s infinite;
+            transition: var(--transition);
+            border: 5px solid var(--primary-color);
+        }
+
+        @keyframes morphing {
+            0% {
+                border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+            }
+            25% {
+                border-radius: 58% 42% 75% 25% / 76% 46% 54% 24%;
+            }
+            50% {
+                border-radius: 50% 50% 33% 67% / 55% 27% 73% 45%;
+            }
+            75% {
+                border-radius: 33% 67% 58% 42% / 63% 68% 32% 37%;
+            }
+            100% {
+                border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+            }
+        }
+
+        .btn-primary {
+            background-color: var(--primary-color);
+            color: white;
+            transition: var(--transition);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(255, 56, 56, 0.3);
+        }
+
+        .social-icons a {
+            transition: var(--transition);
+        }
+
+        .social-icons a:hover {
+            transform: translateY(-5px);
+            color: var(--primary-color);
+        }
+
+        .animated-text {
+            position: relative;
+            display: inline-block;
+        }
+
+        .animated-text span {
+            position: absolute;
+            top: 0;
+            left: 0;
+            opacity: 0;
+            animation: rotate-text 12s linear infinite;
+        }
+
+        .animated-text span:nth-child(1) {
+            animation-delay: 0s;
+        }
+
+        .animated-text span:nth-child(2) {
+            animation-delay: 4s;
+        }
+
+        .animated-text span:nth-child(3) {
+            animation-delay: 8s;
+        }
+
+        .animated-text span:nth-child(4) {
+            animation-delay: 12s;
+        }
+        .animated-text span:nth-child(5) {
+            animation-delay: 16s;
+        }
+
+        @keyframes rotate-text {
+            0%, 20%, 80%, 100% {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            25%, 55% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .toggle-theme {
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .mobile-menu {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 80%;
+            max-width: 300px;
+            height: 100vh;
+            background-color: var(--bg-color);
+            box-shadow: -5px 0 15px var(--shadow-color);
+            z-index: 1001;
+            transition: var(--transition);
+            padding: 2rem;
+        }
+
+        .mobile-menu.active {
+            right: 0;
+        }
+
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition);
+        }
+
+        .overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        @media (min-width: 768px) {
+            .cursor {
+                display: block;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="overlay" id="overlay"></div>
+
+    <div class="mobile-menu" id="mobile-menu">
+        <button class="close-menu text-2xl absolute top-5 right-5 text-gray-500 hover:text-red-500 transition-colors">
+            <i class="fas fa-times"></i>
+        </button>
+        <div class="flex flex-col gap-8 mt-12">
+            <a href="index.html" class="text-lg font-medium nav-link">Home</a>
+            <a href="about.html" class="text-lg font-medium nav-link">About</a>
+            <a href="project.html" class="text-lg font-medium nav-link">Projects</a>
+            <a href="contact.html" class="text-lg font-medium nav-link">Contact</a>
+        </div>
+    </div>
+
+    <!-- Navbar -->
+    <nav class="navbar py-4 px-6 md:px-16">
+        <div class="container mx-auto flex justify-between items-center">
+            <a href="#home" class="text-xl md:text-2xl font-bold">
+                <span class="text-red-500">C</span>hiranth<span class="hidden md:inline"> Janardhan Moger</span>
+            </a>
+            
+            <div class="hidden md:flex items-center gap-8">
+                <a href="index.html" class="nav-link font-medium">Home</a>
+                <a href="about.html" class="nav-link font-medium">About</a>
+                <a href="project.html" class="nav-link font-medium">Projects</a>
+                <a href="contact.html" class="nav-link font-medium">Contact</a>
+            </div>
+            
+            <div class="flex items-center gap-4">
+                
+                <button class="block md:hidden menu-btn">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-section px-6 md:px-16">
+        <div class="container mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+            <div class="reveal">
+                <div class="flex flex-col gap-4">
+                    <span class="bg-red-100 text-red-600 text-sm px-3 py-1 rounded-full inline-block w-max">Developer</span>
+                    <h1 class="text-5xl md:text-7xl font-bold">Hi, I'm <span class="text-red-500">Chiranth</span></h1>
+                    <div class="h-16 md:h-20 relative">
+                        <p class="text-xl md:text-2xl font-medium">I'm a 
+                            <span class="animated-text ml-1 text-red-500 font-semibold">
+                                <span>Web Developer</span>
+                                <span>Creative Thinker</span>
+                                <span>Problem Solver</span>
+                            
+                            </span>
+                        </p>
+                    </div>
+                    <p class="text-gray-600 dark:text-gray-300 mt-2 mb-6 max-w-md">
+                        Passionate about creating beautiful, functional, and user-friendly digital experiences.
+                    </p>
+                    
+                    <div class="flex flex-wrap gap-4">
+                        <a href="contact.html" class="btn-primary px-6 py-3 rounded-full font-medium flex items-center gap-2">
+                            <span>Get in touch</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                        
+                        <a href="./image/Chiranth_Resume.pdf" download="Chiranth_Resume.pdf" class="border-2 border-red-500 text-red-500 px-6 py-3 rounded-full font-medium hover:bg-red-500 hover:text-white transition-colors flex items-center gap-2">
+                            <span>Download Resume</span>
+                            <i class="fas fa-download"></i>
+                        </a>
+                    </div>
+                    
+                    <div class="social-icons flex gap-6 mt-8">
+                        <a href="https://github.com/chiranth-janardhan-moger" target="_blank" aria-label="GitHub Profile" class="text-3xl">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/in/chiranthmoger-01a867316" target="_blank" aria-label="LinkedIn Profile" class="text-3xl">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                        <a href="mailto:chiranthmoger7@gmail.com" aria-label="Send an Email" target="_blank"  class="text-3xl">
+                            <i class="far fa-envelope"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="flex justify-center md:justify-end reveal" style="animation-delay: 0.3s">
+                <div class="relative">
+                    <div class="absolute inset-0 bg-red-500 rounded-full blur-2xl opacity-20 transform scale-110"></div>
+                    <img src="./image/WhatsApp_Image_2025-03-04_at_9.45.50_PM-removebg-preview.png" alt="Chiranth Janardhan Moger" class="profile-img w-80 h-80 object-cover z-10 relative">
+                </div>
+            </div>
+        </div>
+    </section>
+
+<script src=""></script>
+    <script>        
+        // Mobile menu functionality
+        const menuBtn = document.querySelector('.menu-btn');
+        const closeMenu = document.querySelector('.close-menu');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const overlay = document.getElementById('overlay');
+        const mobileLinks = document.querySelectorAll('#mobile-menu a');
+        
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.add('active');
+            overlay.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        });
+        
+        function closeMobileMenu() {
+            mobileMenu.classList.remove('active');
+            overlay.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+        
+        closeMenu.addEventListener('click', closeMobileMenu);
+        overlay.addEventListener('click', closeMobileMenu);
+        
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', closeMobileMenu);
+        });
+        
+        
+    </script>
+</body>
+</html>
