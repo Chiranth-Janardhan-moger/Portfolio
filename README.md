@@ -4,7 +4,7 @@ Welcome to my personal portfolio! 🎨 This project showcases my work, skills, a
 
 ## 🚀 Live Demo
 
-🌐 [View Live Site](......)  
+🌐 [View Live Site](https://chiranth-janardhan-moger.github.io/Portfolio/)  
 
 ## 🛠️ Tech Stack
 
